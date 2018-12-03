@@ -1,4 +1,4 @@
-# Microserviecs course labs
+# Microservices course labs
 
 1. [Architecture](architecture.md)
 2. [DDD](ddd.md)
