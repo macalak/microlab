@@ -26,6 +26,7 @@
   http://192.168.122.230:3000/
   default account admin/admin
 * Usefull stuff
+  Install vbguest plugin to Vagrant `vagrant plugin install vagrant-vbguest`
   Export Vagrant box `vagrant package --output microservices.box`
   Add Vagrant box `vagrant box add --name mynewbox mynew.box`
   Start VM `vagrant up microservices`
