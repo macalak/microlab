@@ -12,6 +12,8 @@ as [Hystrix](https://github.com/Netflix/Hystrix), [Ribbon](https://github.com/Ne
    configure Ribbon manually in _application.properties_.
 4. You can implement your own Decoders/Encoders and other Feign components
 5. Now, implement the client facing REST API which calls Feign client interface 
+   It should be the @RestController which redirects the request handling to Feign client
+   You can include the data transformation as well.
    
  
 

@@ -16,7 +16,7 @@ need to communicate wit registered one. Spring Cloud wraps Netflix Eureka server
 ## Add Eureka discovery client
 1. Include `org.springframework.cloud:spring-cloud-starter-netflix-eureka-client` Spring Boot starter into your application.
    Use the https://start.spring.io/ app and add dependency named as "Eureka Discovery"  
-2. The SpringBoot application configuration class must be annotated with _@EnableEurekaClient _ annotation  
+2. The SpringBoot application configuration class must be annotated with _@EnableEurekaClient_ annotation  
 3. You can use Eureka API, Netflix modules as Ribbon, or Zuul, or Feign REST API client to discover services.   
 4. Clients have an in-memory cache of Eureka registrations (so they do not have to go to the registry for every request to a service).
             
