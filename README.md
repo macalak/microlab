@@ -6,7 +6,7 @@
 4. [Service registry](registry.md)
 5. [API Gateway](gateway.md)
 6. [DevOps](devops.md)
-4. [Development process](dev_proccess.md)
+7. [Development process](dev_proccess.md)
 
 ## Links and info
 * GitLab
@@ -25,6 +25,8 @@
 * Grafana
   * http://192.168.122.230:3000/
   * default account admin/admin
+* Prometheus
+  * http://192.168.122.230:19090
 * Usefull stuff
   * Install vbguest plugin to Vagrant `vagrant plugin install vagrant-vbguest`
   * Export Vagrant box `vagrant package --output microservices.box`
