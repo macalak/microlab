@@ -69,7 +69,17 @@ you get alsi /prometheus endpoint, which is consumed by the Prometheus server.
 
 1. Include Actuator's Prometheus extension on project classpath `compile ('io.micrometer:micrometer-registry-prometheus')`
 2. Check if /actuator/prometheus is added
-3. Configure prometheus sources to include your module
+3. Now, Configure prometheus sources to include castle module. There is configuration file _/etc/prom-conf/prometheus.yml_ in prometheus   container, ehere the sources should be configured for every module:
+```
+- job_name: 'castle'
+  metrics_path: /actuator/prometheus
+  static_configs:
+    - targets:
+      - '10.0.2.2:9194'
+```
+The 10.0.2.2 is the IP address of host machine where Vagrant was started.
+To connect to prometheus container use `docker exec -it <container-id> /bin/sh` 
+The prometheus configuration can be reloaded using API. Execute  `curl -X POST http://localhost:19090/-/reload` from Vagrant box machine. Then you check prometheus targets configuration here http://192.168.122.230:19090/targets
 4. The Grafana can be used to visualise metrics
 
 
