@@ -80,7 +80,8 @@ you get alsi /prometheus endpoint, which is consumed by the Prometheus server.
   The 10.0.2.2 is the IP address of host machine where Vagrant was started.
   To connect to prometheus container use `docker exec -it <container-id> /bin/sh` 
   The prometheus configuration can be reloaded using API. Execute  `curl -X POST http://localhost:19090/-/reload` from Vagrant box
-  machine. Then you check prometheus targets configuration here http://192.168.122.230:19090/targets
+  machine. Then you check prometheus targets configuration here http://192.168.122.230:19090/targets  
+  
 4. The Grafana can be used to visualise metrics
 
 
