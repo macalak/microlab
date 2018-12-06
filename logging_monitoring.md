@@ -82,6 +82,6 @@ you get alsi /prometheus endpoint, which is consumed by the Prometheus server.
   The prometheus configuration can be reloaded using API. Execute  `curl -X POST http://localhost:19090/-/reload` from Vagrant box
   machine. Then you check prometheus targets configuration here http://192.168.122.230:19090/targets  
   
-4. The Grafana can be used to visualise metrics
+4. The [Grafana](92.168.122.230:3000) can be used to visualise metrics
 
 
