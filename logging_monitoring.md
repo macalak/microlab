@@ -1,15 +1,15 @@
 # Logging and Monitoring
 Diagnostics and Monitoring as part of DevOps is important aspect of distributed application.
-You should have always your system under control. This must be considered in initial 
-project phase and implemented accordingly. 
+You should have always your system under control. This must be considered in initial
+project phase and implemented accordingly.
 
 ![logging](images/logging_monitoring.jpg)
 
 ## Logging
-Spring Boot uses popular Logback framework to support logging. You should adopt the best 
+Spring Boot uses popular Logback framework to support logging. You should adopt the best
 practices and to have project level strategy how to implement logging. There are ready
 to use centralized logging solutions as [Graylog](https://www.graylog.org/) and [ELK Stack](https://www.elastic.co/elk-stack).
-From application module pov, you need to configure Logback appender which sends logs to Graylog, or Logstash. 
+From application module pov, you need to configure Logback appender which sends logs to Graylog, or Logstash.
 Logging solution also provide logs analytics.
 
 ### Graylog
@@ -38,15 +38,16 @@ Logging solution also provide logs analytics.
 			<fullMessagePattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg %n</fullMessagePattern>
 		</marshaller>
 	</appender>
-	
+
     <root>
 		<level value="INFO" />
 		<appender-ref ref="GRAYLOG2" />
-	</root>	
-</configuration>	
+	</root>
+</configuration>
 ```
 3. You can introduce log markers to mark different log messages scopes, or groups.
    For example define LogMarkers.class as:
+
 ```java
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
@@ -56,8 +57,9 @@ public class LoggerMarkers {
     public static final Marker OPERATIONS = MarkerFactory.getMarker("OPS");
     public static final Marker DIAGNOSTIC = MarkerFactory.getMarker("DIA");
 }
-``` 
+```
 4. And use it as:
+
 ```java
 LOG.debug(LoggerMarkers.DIAGNOSTIC, "Imortant message");
 ```
@@ -69,19 +71,22 @@ you get alsi /prometheus endpoint, which is consumed by the Prometheus server.
 
 1. Include Actuator's Prometheus extension on project classpath `compile ('io.micrometer:micrometer-registry-prometheus')`
 2. Check if /actuator/prometheus is added
-3. Now, Configure prometheus sources to include castle module. There is configuration file _/etc/prom-conf/prometheus.yml_ in prometheus    container, ehere the sources should be configured for every module:
+3. Configure prometheus sources to include your module
+4. The Grafana can be used to visualize metrics
+
+### Prometheus how to add source
+1. ssh to vagrant box `vagrant ssh`
+2. Get prometheus container id `docker ps | grep prom/prometheus`
+3. Open shell to running container `docker exec -it <prometheus_container_id> /bin/sh`
+4. Go to prometheus config directory `cd /etc/prom-conf/`
+5. Add source to config file `vi prometheus.yml`. Use IP and Port of the service.
+
 ```
-- job_name: 'castle'
-  metrics_path: /actuator/prometheus
+- job_name: 'castleservice'
+  scrape_interval: "15s"
   static_configs:
-    - targets:
-      - '10.0.2.2:9194'
+  - targets:
+    - '192.168.99.1:9190'
 ```
-  The 10.0.2.2 is the IP address of host machine where Vagrant was started.
-  To connect to prometheus container use `docker exec -it <container-id> /bin/sh` 
-  The prometheus configuration can be reloaded using API. Execute  `curl -X POST http://localhost:19090/-/reload` from Vagrant box
-  machine. Then you check prometheus targets configuration here http://192.168.122.230:19090/targets  
-  
-4. The [Grafana](92.168.122.230:3000) can be used to visualise metrics
 
-
+6. Exit to Vagrant shell and reload the prometheus configuration `curl -X POST http://localhost:19090/-/reload`
