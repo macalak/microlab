@@ -22,6 +22,7 @@ owners and Travel agencies. It enables a subjects to plan and book a visit, mana
 castle data. The register also provides the simple search function which returns castle records based on input criteria.
 * Castle visit reservations - service which manages reservations for a castle visitors. A travel agency can reserve castle visits
 for its clients scheduled for defined date. After a reservation is created, it can be then modified, canceled or completed.
+* Online Payment for Castle Tickets - ...
 
 ### User stories
 | ID | Story |
