@@ -17,6 +17,9 @@ Spring Cloud Config provides server and client-side support for externalized con
 6. Config servers supports configuration profiles, so you can configure different back-ends as SQL DB, Vault, or local file.
    If you want to pull configuration data only from repositories that are each of distinct types, you can enable 
    the corresponding profiles as `spring.profiles.active = git, vault`
+ 
+## Configuration server API
+Configuration server exposes a REST API which enable clients to get configuration properties. Basic URL scheme is: _http[s]://host:port/<module_name>/<spring_profile>/<label>_. The label is mapped to GIT branch in case the GIT is used as configuration backend store. 
 
 ## Add basic security
 1. Include `org.springframework.boot:spring-boot-starter-security` Spring Boot starter into your application.
