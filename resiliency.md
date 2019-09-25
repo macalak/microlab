@@ -2,7 +2,7 @@
 
 ## Netflix Hystrix
 The [Hystrix](https://github.com/Netflix/Hystrix) is latency and fault tolerant library from Netflix.
-Currently in maintenance mode.
+Currently in maintenance mode. The [Resilience4j](https://github.com/resilience4j/resilience4j) is the Hystrix replacement, which is integrated to Spring Boot.
 
 ## Circuit breaker pattern
 You wrap a protected function call in a circuit breaker object, which monitors for failures. Once the failures reach 
