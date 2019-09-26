@@ -37,7 +37,7 @@ RUN apk add --update curl && rm -rf /var/cache/apk/*
 
 6. Now, build the image `docker build --rm=true --tag=alpinewithcurl:1.0 .`. As you see, you should tag/version image.
 7. List images `docker images`. You should see alpinewithcurl image in the list.
-8. To run curl in container using your new image `docker run alpinewithcurl curl -s --head http://google.com | grep ^Date: | sed 's/Date: //g'`
+8. To run curl in container using your new image `docker run alpinewithcurl:1.0 curl -s --head http://google.com | grep ^Date: | sed 's/Date: //g'`
 It gets current time from goole site.
 9. To list created containers `docker ps -a`. See there are also containers from aplpine and alpinewithcurl images.
 10. To see container details ` docker container inspect <container_id>`
