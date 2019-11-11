@@ -74,6 +74,9 @@ you get alsi /prometheus endpoint, which is consumed by the Prometheus server.
 3. Configure prometheus sources to include your module
 4. The Grafana can be used to visualize metrics
 
+## Spring Boot Actuator
+https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html
+
 ### Prometheus how to add source
 1. ssh to vagrant box `vagrant ssh`
 2. Get prometheus container id `docker ps | grep prom/prometheus`
