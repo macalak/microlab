@@ -11,3 +11,4 @@
 
 ## References
 * https://start.spring.io/
+* H2 Features http://www.h2database.com/html/features.html
