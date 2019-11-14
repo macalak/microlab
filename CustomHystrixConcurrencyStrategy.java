@@ -1,4 +1,4 @@
-package sk.posam.sp.devicegtw.application.interceptor;
+package com.gopas.castleregistergtw.application.interceptor;
 
 import java.util.Map;
 import java.util.concurrent.Callable;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.netflix.hystrix.strategy.HystrixPlugins;
 import com.netflix.hystrix.strategy.concurrency.HystrixConcurrencyStrategy;
 
-import sk.posam.sp.devicegtw.application.util.ThreadContext;
+import com.gopas.castleregistergtw.application.util.ThreadContext;
 
 
 @Component
