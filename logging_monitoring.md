@@ -88,6 +88,7 @@ https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-
 - job_name: 'castleservice'
   scrape_interval: "15s"
   static_configs:
+  - metrics_path: /actuator/prometheus
   - targets:
     - '192.168.99.1:9190'
 ```
